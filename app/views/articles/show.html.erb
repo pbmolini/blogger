@@ -1,6 +1,10 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
 <hr>
+<h3>Comments (<%= @article.comments.size %>)</h3>
+<%= render partial: 'articles/comment', collection: @article.comments %>
+<hr>
+<%= render partial: 'comments/form' %>
 <p><%= link_to "<< All articles", articles_path %></p>
 <p><%= link_to "Edit Article", edit_article_path(@article) %></p>
 <p><%= link_to "Delete Article", article_path(@article), method: :delete, data: { confirm: "Really sure you wante to delete this article?" } %></p>
