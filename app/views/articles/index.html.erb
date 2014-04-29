@@ -1,9 +1,16 @@
 <h1>All Articles</h1>
-
+<p>
+   <%= link_to "All tags", tags_path %>
+</p>
+<hr>
 <ul>
    <% @articles.each do |article| %>
    <li>
       <%= link_to article.title, article_path(article), class: 'article_title', id: 'article_#{article.id}' %>
+      <span style="font-size: .75em">|
+         <%= pluralize article.comments.count, 'comment' %>,
+         <%= pluralize article.tags.count, 'tag' %>
+      </span>
    </li>
    <% end %>
 </ul>
